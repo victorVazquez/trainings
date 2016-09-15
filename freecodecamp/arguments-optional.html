@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function addTogether() {
+      var a = arguments[0],
+          b = arguments[1],
+          notNumber = function (n) {
+            return typeof n !== 'number';
+          };
+
+      if (arguments.length == 2) {
+        if(notNumber(a)  || notNumber(b)){
+          return undefined;
+        }
+
+        return a + b;
+      }
+
+      if (arguments.length == 1) {
+        // a = arguments[0];
+        if(notNumber(a)){
+          return undefined;
+        }else{
+          return function(c){
+            if(notNumber(c)){
+              return undefined;
+            }else{
+              return a + c;
+            }
+          };
+        }
+
+
+
+      }
+      console.log(arguments);
+
+      // return false;
+    }
+
+    addTogether(2,3);
+
+    </script>
+  </body>
+</html>

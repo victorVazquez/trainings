@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function whereAreYou(collection, source) {
+      // Returns on array of all objects that have matching
+      // property and value pairs (source)
+      // Each property and value pair of the source has to be
+      // present in the object from the collection
+      // if it is included in the returned array
+      //
+
+
+      // console.log('source: ' + source.last);
+      var res = [];
+      var len = collection.length;
+
+
+      console.log('source');
+      console.log(source);
+      console.log('collection[2]');
+      console.log(collection[2]);
+      console.log('--------------------------------------------------');
+
+      for (var i in collection) {
+        console.log(collection[i]);
+
+        if (collection.hasOwnProperty(i)) {
+          // console.log(collection[i]);
+        }
+      }
+
+      for(var j in source){
+        console.log('source[j]');
+        console.log(j.property);
+        console.log(source[j]);
+      }
+
+      var last = collection.forEach(function(val, idx, arr){
+        // Verificar si source se encuentra en cualquiera de los elem de collection
+        // console.log("source.hasOwnProperty('a')");
+        // console.log(source.hasOwnProperty('a'));
+        // console.log('Object.keys(source)');
+        // console.log(Object.keys(source));
+
+        // var obj = source.hasOwnProperty(Object.keys(collection));
+        // var obj = collection.hasOwnProperty(Object.keys(source));
+        // console.log('collection.hasOwnProperty(Object.keys(source))');
+        // console.log(obj);
+
+        // console.log(val);
+
+        // Agregar al arr res los elementos de collection que se encuentren en source
+        // res.push(val.a);
+
+
+        // if (collection.hasOwnProperty(i)) {
+          // console.log(i);
+        // }
+
+
+
+        return;
+        if (source.last == val.last) {
+          // console.log(val);
+          res.push(val);
+        }
+        // console.log(collection[val]);
+      });
+      // console.log(res);
+      // console.log(collection[2].hasOwnProperty('last'));
+      // console.log(Object.keys('Montage'));
+    }
+    // whereAreYou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+    whereAreYou([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function makeFriendlyDates(arr) {
+      var str = arr.toString().replace(/-|,/g, '');
+      dateA = '';
+      dateB = '';
+      console.log(arr);
+      var newArr = [];
+      var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+      // Handles the case of the day's endings.
+      function dateEnding(val) {
+        switch (val) {
+          case 1:
+          case 21:
+          case 31:
+            return val + 'st';
+          case 2:
+          case 22:
+            return val + 'nd';
+          case 3:
+          case 23:
+            return val + 'rd';
+          default:
+            return val + 'th';
+        }
+      }
+
+      var newItem, monthA, dayA, yearA, monthB, dayB, yearB;
+
+      monthA = months[parseInt(str.substring(4,6)-1)];
+      dayA = dateEnding(parseInt(str.substring(6,8)));
+      yearA = str.substring(0,4);
+
+      monthB = months[parseInt(str.substring(12,14)-1)];
+      dayB = dateEnding(parseInt(str.substring(14,16)));
+      yearB = str.substring(8,12);
+
+      // console.log(monthA + ' ' +dayA + ', '+ yearA);
+      // console.log(monthB + ' ' +dayB + ', '+ yearB);
+
+      if(monthA != monthB){
+        dateA += monthA;
+        dateB += monthB;
+      }else{
+        if (dayA != dayB) {
+          dateA += monthA;
+        }
+      }
+
+      if(dayA != dayB){
+        dateA += ' ' + dayA;
+        dateB += ' ' + dayB;
+      }
+
+      if (yearA != yearB) {
+        dateA += ', ' + yearA;
+        dateB += ', ' + yearB;
+      }
+
+      console.log(dateA);
+      console.log(dateB);
+
+      var filteredArr = arr.forEach(function (item, index, array) {
+        newItem = item.split('-').join('');
+        monthA = months[parseInt(str.substring(4,6) - 1)];
+        dayA = dateEnding(parseInt(str.substring(6,8)));
+        yearA = newItem.substring(0,4);
+
+        switch (index) {
+          case 0:
+          // newArr.push(monthA + ' ' + dayA + ', ' + yearA);
+          break;
+
+          case 1:
+          monthB = months[parseInt(str.substring(12,14) - 1)];
+          dayB = dateEnding(parseInt(str.substring(14,16)));
+          yearB = str.substring(0,4);
+
+          // console.log(str);
+          // console.log(monthB);
+          if(monthA != monthB){
+            // newArr.push(monthB + 'A');
+          }
+          if (dayA != dayB) {
+            // newArr.push(dayB);
+          }
+          break;
+        }
+      });
+
+      console.log('===================');
+      // // console.log(newArr);
+      // console.log('newArr: '+ newArr);
+      // console.log(dateA);
+      // console.log(dateB);
+      return arr;
+    }
+
+    // makeFriendlyDates(['2016-07-01', '2016-07-04']);
+    // makeFriendlyDates(["2016-12-01", "2017-02-03"]);
+    // makeFriendlyDates(["2016-12-01", "2018-02-03"]);
+    makeFriendlyDates(["2018-01-13", "2018-01-13"]);
+    </script>
+  </body>
+</html>

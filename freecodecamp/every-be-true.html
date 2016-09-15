@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function truthCheck(collection, pre) {
+      // Is everyone being true?
+      /* Basic solution*/
+      // var c = 0;
+      // for (var prop in collection) {
+      //   if (collection[prop].hasOwnProperty(pre) && Boolean(collection[prop][pre]) ) {
+      //     c++;
+      //   }
+      // }
+      // console.log( c == collection.length);
+      // return c == collection.length;
+
+      /* Intermediate solution */
+      return collection.every(function(elem){
+        return elem.hasOwnProperty(pre) && Boolean(elem[pre]);
+      });
+    }
+
+    truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"}, {"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function spinalCase(str) {
+      // Replace
+      // All spaces,
+      // underscores
+      // and from the second Capital (only when does't follow by underscore, space or dash) occurrence
+      // must be replaced with dash
+      // then, all string must be convert to lowerCase
+
+      function replaceStr(){
+        return '-'
+      }
+      // var res = str.replace(/_|\s|A-Z(?!-|)|([A-Z{2,}])/g, replaceStr)/*.toLowerCase()*/;
+      // var res = str.replace(/_|\s|A-Z(?!-|)|([A-Z{2,}])/g, replaceStr)/*.toLowerCase()*/;
+      // var res = str.replace(/_|\s|([A-Z{2,}])/g, '-$1')/*.toLowerCase()*/;
+      var res = str.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/_|\s/g, '-').toLowerCase();
+
+      console.log(res);
+      return str;
+    }
+
+    spinalCase('This Is Spinal Tap');
+    // spinalCase('The_Andy_Griffith_Show');
+    // spinalCase('Teletubbies say Eh-oh');
+    // spinalCase('thisIsSpinalTap');
+      // spinalCase('AllThe-small Things');
+    </script>
+  </body>
+</html>

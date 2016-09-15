@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+    var Person = function(firstAndLast) {
+      var arr = firstAndLast.split(' ');
+      var _first = arr[0];
+      var _last  = arr[1];
+      var _fullName = _first + ' ' + _last;
+      // console.log(_last);
+
+      this._getFirstName = function(){
+        return _first;
+      };
+
+      this._getLastName = function(){
+        return _last;
+      };
+
+      this._getFullName = function(){
+        return _fullName;
+      };
+
+      this._setFirstName = function(first){
+        _first = first;
+      };
+
+      this._setLastName = function(last){
+        _last = last;
+      };
+
+      this._setFullName = function(firstAndLast){
+        _fullName = firstAndLast;
+      };
+
+
+       return {
+         getFirstName: this._getFirstName,
+         getLastName: this._getLastName,
+         getFullName: this._getFullName,
+         setFirstName: this._setFirstName,
+         setLastName: this._setLastName,
+         setFullName: this._setFullName
+
+       };
+    };
+
+    var bob = new Person('Bob Ross');
+    bob.getFullName();
+
+
+    </script>
+  </body>
+</html>

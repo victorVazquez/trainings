@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Funciones como valores - POO en JS</title>
+  </head>
+  <body>
+    <h1>Funciones como valores - POO en JS</h1>
+
+    <script type="text/javascript">
+      var sayHi = new Function("console.log('Hi!')");
+      console.log('sayHi()');
+      sayHi();
+
+      console.log('sayHi2()');
+      var sayHi2 = sayHi;
+      sayHi2();
+
+      console.clear();
+
+      var numbers = [1,5,8,4,7,10,2,6];
+      numbers.sort();
+      console.log(numbers);
+
+      numbers.sort(function (first, second) {
+        // console.log(first);
+        return first;
+      });
+      console.log("first");
+      console.log(numbers);
+
+      numbers.sort(function (first, second) {
+        // console.log(second);
+        return second;
+      });
+      console.log("second");
+      console.log(numbers);
+
+      numbers.sort(function (first, second) {
+        // console.log(first - second);
+        return first - second;
+      });
+      console.log("first - second");
+      console.log(numbers);
+
+      numbers.sort(function (first, second) {
+        // console.log(first - second);
+        return second - first;
+      });
+      console.log("a + b + c + d");
+      console.log(numbers);
+
+    </script>
+  </body>
+</html>

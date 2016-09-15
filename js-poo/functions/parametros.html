@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Parámetros - POO en JS</title>
+  </head>
+  <body>
+    <h1>Parámetros - POO en JS</h1>
+    <script type="text/javascript">
+    /*
+    function reflect(value) {
+      return value;
+    }
+
+    console.log(reflect('Hi!'));
+    console.log(reflect('Hi!', 25));
+    console.log(reflect.length);
+
+    console.log(reflect('Hi again!'));
+    console.log(reflect.length);
+
+    console.log(reflect('Hi again!', 38, 34, 45));
+    console.log(reflect.length);
+
+    var reflectB = function() {
+      return arguments[2];
+    }
+
+    console.log(reflectB("Hi!!", 23, "Hello world!", ["Hello", 25]));
+    console.log(reflectB.length);
+
+
+    console.clear();
+*/
+    function sum(){
+      var result = 0,
+          i = 0,
+          len = arguments.length;
+
+          console.log(len);
+
+      while(i < len){
+        result += arguments[i];
+        i++;
+      }
+
+      return result;
+    }
+
+    // console.log(sum(2,5,8));
+    // console.log(sum(2,3,4));
+    console.log(sum());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function myReplace(str, before, after) {
+      console.log('initial');
+      console.log(str);
+      console.log('before');
+      console.log(before);
+      console.log('after');
+      console.log(after);
+
+      var res = '';
+      var firstLetterBefore = before.charAt(0);
+      var firstLetterAfter = after.charAt(0);
+      var afterToUpperCase = after.replace(firstLetterAfter, firstLetterAfter.toUpperCase());
+
+      if( firstLetterBefore == firstLetterBefore.toUpperCase() ){
+        res = str.replace(before, afterToUpperCase);
+      }else{
+        res = str.replace(before, after);
+      }
+
+      console.log('=====================================================');
+      console.log('final');
+      console.log(res);
+    }
+
+    // myReplace("He is Sleeping on the couch", "Sleeping", "sitting");
+    myReplace("His name is Tom", "Tom", "john");
+    </script>
+  </body>
+</html>

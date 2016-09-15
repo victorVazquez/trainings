@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function pairElement(str) {
+      var elements = str.split('');
+      var pairsArr = [];
+
+      for (var element in elements) {
+        switch (elements[element]) {
+          case 'A':
+            pairsArr.push(['A', 'T']);
+            break;
+
+          case 'T':
+            pairsArr.push(['T', 'A']);
+            break;
+
+          case 'C':
+            pairsArr.push(['C', 'G']);
+            break;
+
+          case 'G':
+            pairsArr.push(['G', 'C']);
+            break;
+        }
+      }
+
+
+      console.log(elements);
+      console.log(pairsArr);
+    }
+
+    pairElement("ATCGA");
+    </script>
+  </body>
+</html>

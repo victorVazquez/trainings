@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Random Quotes</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
+    <script src="http://natetyler.github.io/javascripts/wikiquote-api.js" charset="utf-8"></script>
+    <script src="http://magicspatula.com/stock/quotes.js"></script>
+    <script type="text/javascript">
+    function getRandomColor(){
+      var str = "0123456789ABCDEF".split('');
+      // alert(str);
+      var color = "#";
+      // alert(color);
+      for(var i=0; i < 6; i++){
+        // alert(i);
+        color += str[Math.floor(Math.random() * 16)];
+        // console.log(color);
+      }
+      console.log(color);
+    }
+    getRandomColor();
+
+    $(document).ready(function(){
+
+      gotStock = function (resp) {
+        var quote = resp.split(' -');
+        console.log(quote);
+      };
+
+      showStockQuote = function(){
+        getstockquote(
+          'Goog',
+          'gotStock'
+        );
+      };
+
+      showStockQuote();
+
+      $.ajax({
+        // url: 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Fight_Club_(film)&prop=text',
+        url: 'https://en.wikiquote.org/w/api.php?format=json&action=parse&page=Archivo_de_la_Frase_célebre_del_día/diciembre/2012&prop=text',
+        type: 'GET',
+        crossDomain: true,
+        dataType: 'jsonp',
+        success: function(response){
+          var data = JSON.stringify(response);
+          console.log(response);
+        }
+
+      });
+    });
+    </script>
+
+  </body>
+</html>

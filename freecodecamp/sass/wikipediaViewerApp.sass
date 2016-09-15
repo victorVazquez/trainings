@@ -1,0 +1,102 @@
+// compileCompressed: ../css/$1.min.css
+
+// $bgColor: #0e2135
+$bgColor: #06121f
+// $bgColor: #fff
+$ffColor: $bgColor
+$bgSearch: white
+$bgResults: #f7f7f7
+$bgResults: rgba(247,247,247,0.95)
+
+html
+  color: $ffColor
+  background-color: $bgColor
+  // background-image: url(http://static.victorzamudio.mx/public/img/wikipedia-bg.jpg)
+  // background-repeat: no-repeat
+  // background-position: center 0
+
+body
+  position: absolute
+  z-index: -2
+  min-width: 100%
+  min-height: 100%
+  background-color: $bgColor
+  background-image: url(http://static.victorzamudio.mx/public/img/wikipedia-logo-bg02.png)
+  background-attachment: fixed
+
+.container-fluid
+  z-index: 2
+  // position: absolute
+
+h1
+  font-family: 'Poiret One', cursive
+  margin: 0.5em 0
+  font-size: 4em
+  color: $bgResults
+
+
+#results ul
+  font-family: 'Oswald', sans-serif
+  font-size: 1.2em
+  line-height: 1.4em
+
+section
+  // margin-top: 1em
+
+#search, form
+  padding: 1em
+
+form
+  padding-bottom: 0
+
+#search
+  padding: 2em 0
+  background-color: $bgSearch
+
+
+#searchText
+  width: 100%
+
+#searchRandom
+    margin-left: 2em
+
+
+#results
+  padding: 0
+  padding-bottom: 2em
+  margin-bottom: 6em
+  background-color: $bgResults
+
+  h2
+    margin: 0
+    padding: 0.5em 0
+    font-family: 'Patua One', cursive
+    background-color: rgba(6,26,47,0.75)
+    color: $bgResults
+
+  li
+    list-style: none
+    margin-top: 2em
+    // border-top: 1px dotted $bgColor
+
+    .text
+      opacity: 0.75
+
+footer
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  padding: 1em 0
+  background-color: white
+
+.wikipediaSphere
+  position: fixed
+  top: 6em
+  left: 0
+  width: 100%
+  height: 725px
+  background-image: url(http://static.victorzamudio.mx/public/img/wiki-sphere.png)
+  background-position: center 0
+  background-repeat: no-repeat
+  z-index: -1

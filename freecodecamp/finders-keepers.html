@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function findElement(arr, func) {
+      var num = arr.filter(func);
+      console.log(num[0]);
+      return num[0];
+    }
+
+    findElement([1, 2, 3, 4], function(num){ return num % 2 === 0; });
+
+    </script>
+  </body>
+</html>

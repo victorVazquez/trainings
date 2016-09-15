@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+    <link rel="stylesheet" href="/css/App.min.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body ng-app="simpleCalculatorApp">
+    <div class="container" ng-controller="simpleCalculatorCtrl">
+      <div class="col-md-4 col-md-offset-4 container-calculator">
+        <span class="bg-calculator"><i>Developed by <a href="http://victorzamudio.mx">Victor Zamudio</a></i> </span>
+        <div id="calculator" class="col-md-12">
+          <div id="display" class="row">
+            <p class="col-md-12">
+              <span id="messages" class="col-md-12">{{title}}</span>
+              <strong id="history" class="col-md-12 {{sizeMemory}}">{{memory ||0}}</strong>
+              <strong id="total" class="col-md-12 {{sizeTotal}}">{{total ||0 | number}}</strong><br>
+            </p>
+          </div>
+          <div id="keys" class="row">
+            <div class="col-md-12">
+              <button class="col-md-3" type="button" value="ac" ng-click="clear()"><span>AC</span></button>
+              <button class="col-md-3" type="button" value="ce" ng-click="clear()"><span>CE</span></button>
+              <button class="col-md-3" type="button" value="division" ng-click="addOperator('/')"><span>&divide;</span></button>
+              <button class="col-md-3" type="button" value="multiplication" ng-click="addOperator('*')"><span>&times;</span></button>
+            </div>
+            <div class="col-md-12">
+              <button class="col-md-3" type="button" value="7" ng-click="addNumber(7)"><span>7</span></button>
+              <button class="col-md-3" type="button" value="8" ng-click="addNumber(8)"><span>8</span></button>
+              <button class="col-md-3" type="button" value="9" ng-click="addNumber(9)"><span>9</span></button>
+              <button class="col-md-3" type="button" value="minus" ng-click="addOperator('-')"><span>-</span></button>
+            </div>
+            <div class="col-md-12">
+              <button class="col-md-3" type="button" value="4" ng-click="addNumber(4)"><span>4</span></button>
+              <button class="col-md-3" type="button" value="5" ng-click="addNumber(5)"><span>5</span></button>
+              <button class="col-md-3" type="button" value="6" ng-click="addNumber(6)"><span>6</span></button>
+              <button class="col-md-3" type="button" value="plus" ng-click="addOperator('+')"><span>+</span></button>
+            </div>
+            <div class="col-md-9">
+              <button class="col-md-4" type="button" value="1" ng-click="addNumber(1)"><span>1</span></button>
+              <button class="col-md-4" type="button" value="2" ng-click="addNumber(2)"><span>2</span></button>
+              <button class="col-md-4" type="button" value="3" ng-click="addNumber(3)"><span>3</span></button>
+            </div>
+            <div class="col-md-3 equal">
+              <button class="col-md-12" type="button" value="equal" ng-click="calculate()">=</button>
+            </div>
+            <div class="col-md-9">
+              <button class="col-md-8 zero" type="button" value="0" ng-click="addNumber(0)"><span>0</span></button>
+              <button class="col-md-4" type="button" value="decimal" ng-click="addDecimal()"><span>.</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.6/angular-sanitize.js" charset="utf-8"></script>
+    <script src="js/App.js" charset="utf-8"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function getIndexToIns(arr, num) {
+      console.log('arr');
+      console.log(arr);
+      // Find my place in this sorted array.
+      var res;
+
+      //Insertar el segundo argumento al array
+      res = arr.push(num);
+      console.log('arr insertado');
+      console.log(arr);
+
+      // Ordenar el array
+      res = arr.sort(function(a,b){
+        return a - b;
+      });
+      console.log('arr ordenado');
+      console.log(arr);
+
+      //Devolver el indice mas bajo del array
+      res = arr.indexOf(num)
+
+      console.log('resultado');
+      console.log(res);
+      //return num;
+    }
+
+      getIndexToIns([20,3,5], 19);
+    </script>
+  </body>
+</html>

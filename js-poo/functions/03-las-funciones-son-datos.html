@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Las funciones son datos (Functions are data) - Functions</title>
+  </head>
+  <body>
+      <h1>Las funciones son datos (Functions are data)</h1>
+      <p>
+        En Javascript, las funciones pueden definirse de 2 formas:
+      </p>
+      <p>
+        <strong>Notacion literal</strong><br>
+        <code>var f = function(){return 1;}</code>
+      </p>
+      <p>
+        <strong>Notacion declarativa</strong><br>
+        <code>function f(){return 1;}</code>
+      </p>
+      <p>
+        Asi que las funciones en Javascript son datos, pero un tipo especial de datos
+        con 2 importantes caracteristicas:
+      </p>
+      <ul>
+        <li>Contienen código</li>
+        <li>Son ejecutables (pueden ser invocadas)</li>
+      </ul>
+      <h2>Funciones anonimas</h2>
+      <p>
+        En Javascript esta bien tener piezas de codigo que se extienden alrededor del programa. Imaginemos que tenemos el siguiente codigo:<br>
+        <code>"test"; [1,2,3]; undefined; null; 1;</code><br>
+        Este codigo puede verse un poco extraño porque no hace nada, pero el codigo es valido y no causa ningun tipo de error.
+      </p>
+      <p>
+        Ahora, esas piezas anonimas de codigo dispersas alrededor del programa no son utiles, excepto si pasan a ser funciones,
+        en este caso puede haber 2 usos elegantes para ellos:
+      </p>
+      <ul>
+        <li>Puedes pasar una funcion anonima como parametro a otra funcion. La función que recibe puede hacer algo util con la funcion que pasas</li>
+        <li>Puedes definir una funcion anonima y ejecutarla enseguida</li>
+      </ul>
+      <p>
+        Veamos esas 2 aplicaciones de las funciones anonimas con mayor detalle
+      </p>
+      <h3>Funciones Callback</h3>
+      <p>
+        Este es un ejemplo de una funcion que acepta 2 funciones como parametros:<br><br>
+        <code>
+          function invoke_and_add( a,b ) {<br>
+            &nbsp;return a() + b();<br>
+          }
+      </code><br><br>
+      Ahora, definamos 2 funciones sencillas que solo devuelvan valores codificados:<br><br>
+      <code>
+        function one() {<br>
+          &nbsp;return 1;<br>
+        }<br><br>
+        function two() {<br>
+          &nbsp;return 2;<br>
+        }
+      </code><br><br>
+      Ahora pasamos esas 2 funciones como parametros de la funcion primera ( <strong>B( A )</strong> ):<br><br>
+      <code>
+        invoke_and_add(one,two)
+      </code><br><br>
+      O podriamos pasarle 2 funciones anonimas como parametros ( <strong>B( function(){return 25;} )</strong> ):<br><br>
+      <code>
+        invoke_and_add(function(){return 5;}, function(){return 25;})
+      </code>
+      </p>
+      <p>
+        Cuando pasamos una funcion A a otra funcion B y B ejecuta A, decimos que A es una funcion callback. Si A
+        no tiene nombre, entonces podemos decir que es una funcion anonima callback.
+      </p>
+      <ul>
+        Cuando son utiles las funciones callback? Estos son algunos de los beneficios que aportan:
+        <li>Nos permiten pasar funciones sin necesidad de nombrarlas (Lo cual significa que hay menos variables globales)</li>
+        <li>Podemos delegar la responsabilidad a una funcion de llamar a otra funcion (Lo cual significa menos codigo que escribir)</li>
+        <li>Pueden ayudar a mejorar el rendimiento</li>
+      </ul>
+    <script src="js/03-las-funciones-son-datos.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

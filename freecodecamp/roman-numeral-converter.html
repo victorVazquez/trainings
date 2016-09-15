@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function convertToRoman(num) {
+
+      // console.log(num);
+
+      var decimalArray = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+      var romanArray = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
+      // // var romanArray = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
+      //
+      var res = '';
+
+      for (var i = 0; i < decimalArray.length; i++) {
+        // console.log('decimalArray[i] : '+decimalArray[i]);
+        // console.log('num : '+num);
+        while(decimalArray[i] <= num){
+          res += romanArray[i];
+          console.log(romanArray[i]);
+          console.log('res: '+res);
+          num -= decimalArray[i];
+          // console.log(num);
+        }
+      }
+
+      // console.log(res);
+
+
+    }
+
+    convertToRoman(3999);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function fearNotLetter(str) {
+      // console.log(str);
+      var missing;
+
+      for (var i=0; i < str.length; i++) {
+        var code = str.charCodeAt(i);
+        // console.log(letter);
+        // console.log(code);
+        // console.log(str.charCodeAt(0 + letter));
+        if (code !== str.charCodeAt(0) + i) {
+          missing = String.fromCharCode(code-1);
+          return String.fromCharCode(code - 1);
+        }
+      }
+
+      // console.log(missing);
+      return undefined;
+
+    }
+
+    // fearNotLetter("abce");
+    fearNotLetter("abcdefghjklmno");
+    // fearNotLetter("bcd");
+    // fearNotLetter("yz");
+    </script>
+  </body>
+</html>

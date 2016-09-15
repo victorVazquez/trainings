@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function translatePigLatin(str) {
+      console.log(str);
+      var newStr = '';
+      var pigLatin = '';
+      var firstLetter = str.charAt(0);
+      // var newArr = [];
+
+      function isVowel(x){
+        return /[aeiouAEIOU]/.test(x);
+      }
+      var letters = str.split('');
+
+      pigLatin = letters.join('');
+
+      console.log(pigLatin);
+      // console.log(newArr);
+
+    }
+
+    translatePigLatin("california");
+    // translatePigLatin("paragraphs");
+    // translatePigLatin("glove");
+    // translatePigLatin("algorithm");
+    // translatePigLatin("eight");
+    </script>
+  </body>
+</html>

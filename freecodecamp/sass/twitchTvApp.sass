@@ -1,0 +1,107 @@
+// compileCompressed: ../css/$1.min.css
+$bodyBGColor: #7a7363
+$onlineBGColor: #4a7100
+$onlineColor: #ddff9d
+$offlineBGColor: #282f3c
+$offlineColor: #71839e
+
+
+body
+  background-color: $bodyBGColor
+
+header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  margin: 0!important
+  z-index: 1
+  background-color: $bodyBGColor
+
+h1
+  font-family: 'Patua One', cursive
+  margin: 0.5em 0
+  font-size: 4em
+  color: white
+
+#filter
+  padding: 0
+  margin-bottom: 0
+  border: solid 1px white
+  // margin-bottom: 1em
+
+  a
+    font-size: 2em
+    font-family: 'Poiret One', cursive
+    text-transform: uppercase
+    text-decoration: none
+    padding: 0.5em
+    background-color: white
+    color: $offlineBGColor
+    // color: white
+
+  .selected
+    background-color: transparent
+    color: white
+    cursor: default
+
+  .selected:hover
+    opacity: 1
+
+  a:hover
+    opacity: 0.7
+
+#results
+  // padding-top: 14em
+  // padding-bottom: 8em
+  padding: 14em 0 8em 0
+
+  .row
+    box-shadow: 0 0 1em black 
+    // border-bottom: solid 1px $offlineColor
+    // margin-bottom: 1px
+    padding: 1em 0
+    line-height: 72px
+    text-transform: uppercase
+
+    strong
+      font-family: 'Oswald', sans-serif
+      font-weight: normal
+
+
+    a
+      font-size: 1.5em
+      color: #ffe600
+      text-decoration: none
+
+    a:hover
+      opacity: 0.7
+
+    img
+      border-radius: 50px
+      // border: solid 5px #8eabd5
+
+    .status
+      font-family: 'Poiret One', cursive
+      font-size: 2em
+
+.offline
+  background-color: $offlineBGColor
+  color: $offlineColor
+
+
+.online
+  background-color: $onlineBGColor
+  color: $onlineColor
+
+.all
+  background-color: #655e5a
+  color: #67676f
+
+footer
+  position: fixed
+  bottom: 0
+  left: 0
+  width: 100%
+  padding: 1em 0
+  background-color: white

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function diffTwoArray(arr1, arr2){
+      // var arr3 = arr1.concat(arr2);
+      var newArr = [];
+      function compareElementsArray(arr, element){
+        if(arr.indexOf(element) === -1){
+          console.log(element + ' no existe en arr1. Se agrega a newArr');
+          newArr.push(element);
+        }
+      }
+
+
+      for (var i = 0; i < arr2.length; i++) {
+        compareElementsArray(arr1, arr2[i]);
+      }
+
+      for (var j = 0; j < arr1.length; j++) {
+        compareElementsArray(arr2, arr1[j]);
+      }
+
+      console.log('newArr');
+      console.log(newArr);
+    }
+    diffTwoArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]);
+    </script>
+  </body>
+</html>

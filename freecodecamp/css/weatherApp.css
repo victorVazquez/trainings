@@ -1,0 +1,182 @@
+body{
+  background-image:url(http://static.victorzamudio.mx/public/img/victorzamudio-city.jpg);
+  background-size:100% 100%;
+  background-position: center;
+  background-attachment: fixed;
+}
+body.clear-sky{
+  background-image: url(http://static.victorzamudio.mx/public/img/clear-sky.jpg);
+}
+body.few-clouds{
+  background-image: url(http://static.victorzamudio.mx/public/img/few-clouds.jpg);
+}
+body.scattered-clouds{
+  background-image: url(http://static.victorzamudio.mx/public/img/scattered-clouds.jpg);
+}
+body.broken-clouds{
+  background-image: url(http://static.victorzamudio.mx/public/img/broken-clouds.jpg);
+}
+body.shower-rain{
+  background-image: url(http://static.victorzamudio.mx/public/img/shower-rain.jpg);
+}
+body.rain{
+  background-image: url(http://static.victorzamudio.mx/public/img/rain.jpg);
+}
+body.thunderstorm{
+  background-image: url(http://static.victorzamudio.mx/public/img/thunderstorm.jpg);
+}
+body.snow{
+  background-image: url(http://static.victorzamudio.mx/public/img/snow.jpg);
+}
+body.mist{
+  background-image: url(http://static.victorzamudio.mx/public/img/mist.jpg);
+}
+.container-fluid{
+  padding: 0;
+  padding-bottom: 5em;
+}
+a.custom, a.custom:hover{
+  color:#cb5c02;
+  text-decoration: none;
+}
+a.custom:hover{
+  color:#FFF;
+}
+h1{
+  font-size:6em;
+  background-color:rgba(0,0,0,0.7);
+  margin:0;
+  padding: 0;
+  /*margin:0.20em;*/
+  margin-top:0.0em;
+  color:#fff;
+  box-shadow:0px 0px 180px #000;
+  text-shadow:1px 1px 0px #fff, 4px 1px 0px #999, 0px 8px 10px #000, 0px 8px 10px #000;
+}
+.box{
+  position:relative;
+  margin-top:5em;
+  padding:1em 0;
+  height:25em;
+  background-color:#000;
+  background-color:rgba(0,0,0,0.92);
+  color:#777;
+}
+.dayName{
+  font-size:2em;
+}
+.dayName .title,
+.city,
+#clock .title
+{
+  color:#fff
+}
+.month{
+  font-size:2.5em;
+  line-height:1em;
+  text-transform:uppercase;
+  color:#444;
+}
+.dayNumber{
+  font-size:12em;
+  line-height:1em;
+  color:#777;
+}
+.year{
+  position:absolute;
+  width:100%;
+  text-align:center;
+  left:0;
+  bottom:0.05em;
+  font-size:5em;
+  color:#555;
+}
+#clock p{
+  padding-left:2.5em;
+}
+#clock .head{
+  margin-right:1.25em;
+  font-size:2em;
+}
+#clock span{
+  display:block;
+}
+#clock em{
+  font-style:normal;
+}
+.hours{
+  font-size:9em;
+  line-heigth:0.5em;
+  color:#999;
+}
+.hours:after{
+  content:'hours';
+  font-size:0.25em;
+  line-height:5em;
+  vertical-align:top;
+  color:#444;
+}
+.minutes
+{
+  font-size:6em;
+  line-height:0.0em;
+  color:#666;
+}
+.minutes:after{
+  content:' minutes';
+  font-size:0.25em;
+  line-height:0.0em;
+  vertical-align:top;
+  color:#333;
+}
+.seconds
+{
+  font-size:4em;
+  line-height:2.5em;
+  color:#444;
+}
+.seconds:after{
+  content:' seconds';
+  font-size:0.25em;
+  line-height:10em;
+  vertical-align:top;
+  color:#444;
+}
+.degrees
+{
+  font-size:8em;
+}
+#location{
+  font-size:2em;
+  padding-bottom:1em;
+}
+#temperature{
+  color:#fff;
+}
+#iconWeather i{
+  line-height: 0.5em;
+  vertical-align:bottom;
+  font-size: 5em;
+  color:#fff;
+}
+sup{
+  font-size:2.5em;
+  line-height:3em;
+  display: inline-block;
+  vertical-align:text-bottom;
+}
+
+.description{
+  text-transform: uppercase;
+  font-size:1.5em;
+  color:#777;
+}
+#footer{
+  background-color:black;
+  color:#fff;
+  padding: 1em 0;
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+}

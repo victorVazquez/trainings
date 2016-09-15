@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Constructores y Prototipos - POO en JS</title>
+  </head>
+  <body>
+    <h1>Constructores y Prototipos - POO en JS</h1>
+    <script type="text/javascript">
+    // Constructor (funcion normal con primera letra de nombre en altas)
+    function Person() {
+      // Propiedades y métodos del objeto
+    }
+
+    var person1 = new Person;
+    var person2 = new Person;
+
+    console.log("person1 instanceof Person");
+    console.log(person1 instanceof Person);
+
+    console.log("person2 instanceof Person");
+    console.log(person2 instanceof Person);
+
+    console.log("person1.constructor === Person"); // true
+    console.log(person1.constructor === Person); // true
+
+    console.log("person2.constructor === Person"); // true
+    console.log(person2.constructor === Person); // true
+
+    console.log("person1.constructor === Object"); // false
+    console.log(person2.constructor === Object); // false
+
+    function PersonB(name){
+      this.name = name;
+      this.sayName = function(){
+        console.log(this.name);
+      }
+    }
+
+    var victor = new PersonB("victor");
+    victor.sayName(); // victor
+
+
+    function PersonC(name){
+      Object.defineProperty(this, "name", {
+        get: function(){
+          return name;
+        },
+        set: function(newName){
+          name = newName;
+        },
+        enumerable: true,
+        configurable: true
+      });
+
+      this.sayName = function(){
+        console.log(this.name);
+      };
+    }
+
+    var juan = PersonC("Juan"); // notese que falta el operador new
+    console.log("juan instanceof PersonC");
+    console.log(juan instanceof PersonC); // false
+
+    console.log("typeof juan");
+    console.log(typeof juan); // undefined
+
+    console.log("name");
+    console.log(name); // Juan
+
+    console.log("juan.name");
+    // console.log(juan.name);
+
+    console.clear();
+
+    // Prototypes
+    console.log("***********************************************************");
+    console.log("PROTOTYPES");
+    console.log("***********************************************************");
+
+    var book = {
+      title: "Los principios de JS Orientado a Objetos"
+    };
+
+    console.log('"title" in book'); // true
+    console.log("title" in book); // true
+
+    console.log('book.hasOwnProperty("title")'); // true
+    console.log(book.hasOwnProperty("title")); // true
+
+    console.log('"hasOwnProperty" in book');
+    console.log("hasOwnProperty" in book); // true
+
+    console.log('book.hasOwnProperty("hasOwnProperty")');
+    console.log(book.hasOwnProperty("hasOwnProperty")); // false
+
+    console.log('Object.prototype.hasOwnProperty("hasOwnProperty")');
+    console.log(Object.prototype.hasOwnProperty("hasOwnProperty")); // true
+
+    function hasPrototypeProperty(object, name){
+      return name in object && !object.hasOwnProperty(name);
+    }
+
+    console.log('hasPrototypeProperty(book, "title")'); // false
+    console.log(hasPrototypeProperty(book, "title")); // false
+
+    console.log('hasPrototypeProperty(book, "hasOwnProperty")'); // true
+    console.log(hasPrototypeProperty(book, "hasOwnProperty")); // true
+
+    console.clear();
+
+    var obj = {};
+    var prototype = Object.getPrototypeOf(obj);
+    console.log("prototype === Object.prototype"); // true
+    console.log(prototype === Object.prototype); // true
+
+    var objB = {};
+    console.log("Object.prototype.isPrototypeOf(objB)");
+    console.log(Object.prototype.isPrototypeOf(objB)); // true
+
+    var objC = {};
+    console.log("objC.toString()");
+    console.log(objC.toString()); // ["object Object"]
+
+    objC.toString = function(){
+      return "[object Custom]";
+    };
+
+    console.log("objC.toString()");
+    console.log(objC.toString()); // ["object Custom"]
+
+    // delete own property
+    delete objC.toString;
+    console.log("delete objC.toString()");
+
+    console.log("objC.toString()");
+    console.log(objC.toString()); // ["object Object"]
+
+    // No effect -  delete only works on own properties
+    delete objC.toString;
+    console.log("delete objC.toString()");
+
+    console.log("objC.toString()");
+    console.log(objC.toString()); // ["object Object"]
+
+
+
+    function PersonD(name){
+      this.name = name;
+    }
+
+    PersonD.prototype.sayName = function(){
+      console.log('My name is ' + this.name);
+    };
+
+    var vico = new PersonD("Vico");
+    var toby = new PersonD("Toby");
+
+    console.log("vico.name");
+    console.log(vico.name); // Vico
+
+    console.log("toby.name");
+    console.log(toby.name); // Toby
+
+    console.log("vico.sayName()");
+    vico.sayName(); // My name is Vico
+
+    console.log("toby.sayName()");
+    toby.sayName(); // My name is Toby
+
+    PersonD.prototype.favorites = [];
+
+    vico.favorites.push("Pizza");
+    toby.favorites.push("Tortas");
+
+    console.log("vico.favorites");
+    console.log(vico.favorites); // ["Pizza", "Tortas"]
+
+    console.log("toby.favorites");
+    console.log(toby.favorites); // ["Pizza", "Tortas"]
+
+    function PersonE(name){
+      this.name = name;
+    }
+
+    PersonE.prototype = {
+      sayName: function(){
+        console.log('Hello, my name is ' + this.name);
+      },
+      toString: function(){
+        return "[Person " + this.name +"]";
+      }
+    };
+
+    var jimmy = new PersonE("Jimmy");
+    console.log("jimmy instanceof PersonE"); // true
+    console.log(jimmy instanceof PersonE); // true
+
+    console.log("jimmy.constructor === PersonE"); // false
+    console.log(jimmy.constructor === PersonE); // false
+
+    console.log("jimmy.constructor === Object"); // true
+    console.log(jimmy.constructor === Object); // true
+
+    function PersonF(name){
+      this.name = name;
+    }
+
+    PersonF.prototype = {
+      constructor: PersonF,
+
+      sayName: function(){
+        console.log("Hello, my name is " + this.name);
+      },
+
+      toString: function(){
+        return "[Person " + this.name + "]";
+      }
+    };
+
+    var malcom = new PersonF("Malcom");
+
+    console.log("malcom instanceof PersonF");
+    console.log(malcom instanceof PersonF); // true
+
+    console.log("malcom.constructor === PersonF");
+    console.log(malcom.constructor === PersonF);// true
+
+    console.log("malcom.constructor === Object");
+    console.log(malcom.constructor === Object); // false
+
+
+    var reese = new PersonF("Reese");
+    Object.freeze(malcom);
+
+    PersonF.prototype.sayStatus = function(){
+      console.log("I'm frozzen");
+    };
+
+    console.log("malcom.sayStatus();");
+    malcom.sayStatus();
+
+    console.log("reese.sayStatus();");
+    reese.sayStatus();
+
+
+    Array.prototype.suma = function(){
+      return this.reduce(function(anterior, actual){
+        return anterior + actual;
+      });
+    };
+
+    var numbers = [1,2,3,4,5,6];
+    var result = numbers.suma();
+
+    console.log("result");
+    console.log(result); // 21
+
+    String.prototype.capitalize = function(){
+      return this.charAt(0).toUpperCase() + this.substring(1);
+    };
+
+    var mensaje = "hello world!";
+    console.log("mensaje.capitalize()"); // Hello world!
+    console.log(mensaje.capitalize()); // Hello world!
+
+    </script>
+  </body>
+</html>

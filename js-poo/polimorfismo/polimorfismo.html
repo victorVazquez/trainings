@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Polimorfismo - Curso Acamica POO JS</title>
+  </head>
+  <body>
+    <h1>Polimorfismo - Curso Acamica POO JS</h1>
+
+    <script type="text/javascript">
+    bonoNulo = {
+calcularMontoBono: function(empleado){
+    return 0;
+  }
+};
+
+bonoPorCantidadDeVentas = {
+calcularMontoBono: function(empleado){
+  if(empleado.cantidadVentas <= 10){
+    return 0;
+  }else{
+    return (empleado.sueldoBasico * 25 ) / 100;
+  }
+}
+};
+
+bonoPorPresentismo = {
+calcularMontoBono: function(empleado){
+  if(empleado.cantidadFaltas >= 1){
+    return 0;
+  }else{
+    return (empleado.sueldoBasico * 10) / 100;
+  }
+}
+};
+
+var ernesto = {
+dineroDisponible:0,
+sueldoBasico:1200,
+cantidadVentas:4,
+  cantidadFaltas:0,
+bono:bonoNulo,
+  cobrarSueldo: function(){
+    this.dineroDisponible += this.sueldoBasico;
+}
+};
+var ernestina = {
+dineroDisponible:0,
+  sueldoBasico:1000,
+cantidadVentas:12,
+  cantidadFaltas:10,
+bono:bonoPorCantidadDeVentas,
+  cobrarSueldo: function(){
+   this.dineroDisponible += this.sueldoBasico + this.bono.calcularMontoBono(this);
+   console.log(this.dineroDisponible);
+  }
+};
+var anabel = {
+dineroDisponible:0,
+  sueldoBasico:1500,
+  cantidadVentas:13,
+  cantidadFaltas:2,
+  bono:bonoPorPresentismo
+};
+
+
+    </script>
+  </body>
+</html>

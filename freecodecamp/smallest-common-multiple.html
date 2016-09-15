@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function smallestCommons(arr) {
+      var range = [];
+
+      // Variables needed declared outside the loops
+      var quot = 0;
+      var loop = 1;
+      var n;
+
+      // We sort the array from greater to lowest
+      arr.sort(function(a,b){
+        return b - a;
+      });
+
+      // Create new arr with all values
+      for (var i = arr[0]; i >= arr[1]; i--) {
+        range.push(i);
+      }
+
+
+      // Run code while n is not the same as the array length
+      do {
+        quot = range[0] * loop * range[1];
+        // console.log('in do');
+        // console.log('range[0]');
+        // console.log(range[0]);
+        // console.log('loop');
+        // console.log(loop);
+        // console.log('range[1]');
+        // console.log(range[1]);
+        // console.log('quot');
+        // console.log(quot);
+        for (n = 2; n < range.length; n++) {
+          // console.log('n');
+          // console.log(n);
+          // console.log('quot');
+          // console.log(quot);
+          // console.log('range[n]');
+          // console.log(range[n]);
+          // console.log('quot % range[n]');
+          // console.log(quot % range[n]);
+          // console.log('---------------------');
+          if (quot % range[n] !== 0) {
+            // console.log('break');
+            break;
+          }
+        }
+        loop++;
+      } while (n !== range.length);
+
+
+      // console.log(arr);
+      // console.log(range);
+      console.log('************************');
+      console.log(quot);
+      return quot;
+    }
+
+
+    // smallestCommons([1,5]);
+    smallestCommons([23,18]);
+    </script>
+  </body>
+</html>

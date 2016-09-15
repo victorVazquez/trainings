@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    function pairwise(arr, arg) {
+
+
+    var pairArr = arr.slice();
+    console.log(arg);
+    return pairArr.reduce( function (a,b,index){ // use native reduce to collect running total of summed indices
+        var search = arg - b; // get difference of current item so we know what value will sum to arg
+
+        // check if search value in rest of the array, but also make sure it doesn't match current search index
+        if ( pairArr.indexOf(search) != -1 && pairArr.indexOf(search) != index ){
+           var total = index + pairArr.indexOf(search);  // if found, add to the runnning total
+           pairArr.splice(index,1,NaN); // remove current index from the array
+           pairArr.splice(pairArr.indexOf(search),1,NaN); // remove the other matched element from the array
+           return a + total; //return the running total back to reduce for next item
+        }
+        return a; // simply return previous total if no operations needed
+    },0);
+
+    }
+
+    pairwise([1,4,2,3,0,5], 7);
+    </script>
+  </body>
+</html>

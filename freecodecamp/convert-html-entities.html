@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function convertHTML(str) {
+      htmlEntities={
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '\"':'&quot;',
+        '\'':"&apos;"
+      };
+      //Use map function to return a filtered str with all entities changed automatically.
+      return str.split('').map(function(entity){
+        // console.log(entity);
+
+        return htmlEntities[entity] || entity;
+      }).join('');
+
+    }
+
+    convertHTML("Dolce & Gabbana");
+    </script>
+  </body>
+</html>

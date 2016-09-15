@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Alcance de variables (Scope of Variables) - Functions</title>
+  </head>
+  <body>
+      <h1>Alcance de variables (Scope of Variables)</h1>
+      <p>
+        Las variables en Javascript no son definidas en un bloque de código,
+        sino en el ámbito de una función. <br>
+        Esto significa que si una variable es definida dentro de una función,
+        no es visible fuera de dicha función en que se definio.
+      </p>
+      <p>
+        Sin embargo, una variable definida dentro de un bloque <code>if</code> o <code>for</code>, por ejemplo,
+        es visible fuera del bloque de código.
+      </p>
+      <p>
+        La expresión "Variables globales", describe variables que son definidas fuera de cualquier función.
+        Lo cual es opuesto a "Variables locales", que se refiere a toda variable definida dentro de cualquier función.
+      </p>
+      <p>
+        El código dentro de una función tiene acceso a todas las variables locales, así como a todas
+        sus variables locales.
+      </p>
+    <script src="js/02-alcance-de-variables.js" type="text/javascript" charset="utf-8"></script>
+  </body>
+</html>

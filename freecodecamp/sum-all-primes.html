@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function sumPrimes(num) {
+      var res = 0;
+      function isPrime(n){
+        for(var i=2; i < n; i++){
+          if (!(n % i)) return false;
+        }
+        return true;
+      }
+
+      for (var j = 2; j <= num; j++) {
+        if (isPrime(j)) {
+          console.log(j);
+          res +=j;
+        }
+      }
+
+      console.log('--------------');
+      console.log(res);
+
+      return num;
+    }
+
+    sumPrimes(977);
+
+    </script>
+  </body>
+</html>

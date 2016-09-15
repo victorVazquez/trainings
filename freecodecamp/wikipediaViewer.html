@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>The Local Weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/css/wikipediaViewerApp.min.css" media="screen" title="no title" charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  <body ng-app="wikipediaViewerApp" ng-Controller="wikipediaViewerCtrl" class="{{bg}}">
+<div class="container-fluid">
+  <header class="row text-center">
+    <h1>Wikipedia Viewer</h1>
+  </header>
+  <div class="col-lg-6 col-lg-offset-3 text-center">
+
+    <section id="search" class="col-lg-12">
+      <form class="form-horizontal" ng-submit="searchArticle()">
+        <p class="form-group">
+          <span class="col-lg-5 col-lg-offset-1">
+            <input type="text" name="searchText" id="searchText" class="form-control" placeholder="Write your search here" ng-model="searchText" required="required">
+          </span>
+          <span class="col-lg-5 text-left">
+            <button type="submit" name="search" id="searchButton" class="btn btn-primary">Search Article</button>
+            <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" name="search" id="searchRandom" class="btn btn-primary">Search Random Article</a>
+          </span>
+        </p>
+      </form>
+    </section>
+
+    <section id="results" class="col-lg-12" ng-show="resultsShow">
+      <h2>Results</h2>
+      <ul class="text-left">
+        <li ng-repeat="article in articles">
+            <strong>{{article.title}}</strong><br>
+             <span class="text">{{article.extract}}</span>
+             <br>
+             <a href="{{article.page}}" target="_blank">Ver articulo</a>
+        </li>
+      </ul>
+    </section>
+
+</div>
+
+<span class="decorative wikipediaSphere">&nbsp;</span>
+<footer id="footer" class="text-center">Developed by <a class="custom" href="http://victorzamudio.mx" target="_blank" title="Victor Zamudio Website">V&iacute;ctor Zamudio</a></footer>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.5.6/angular-sanitize.js" charset="utf-8"></script>
+  <script src="js/wikipediaViewerApp.js" charset="utf-8"></script>
+</body>
+</html>

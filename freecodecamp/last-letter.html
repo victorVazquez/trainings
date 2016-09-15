@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function confirmEnding(str, target) {
+// "Never give up and good luck will find you."
+// -- Falcor
+      var oracion, palabra, res, patt;
+      // res = str.split(' ').pop().substr(-1) === target ;
+      patt = new RegExp(target);
+
+      if(/\s/.test(str)){
+        // res = str + ' es oracion';
+        oracion = str.split(' ').pop();
+        res = target + ' se encuentra en ' + oracion + ' : ' + patt.test(oracion);
+      }else{
+        palabra = str.substr(-1);
+        res = target + ' se encuentra en ' + palabra + ' : ' + patt.test(palabra);
+      }
+      // res = str.split(' ').pop();
+      // res = res.pop().substr(-1) === target;
+      // if (/target/.test(str)) {
+      //   // res = true;
+      // }else{
+      //   // res = false;
+      // }
+      // res = /target/.test(str);
+      console.log(target);
+      console.log(oracion);
+      console.log(palabra);
+      console.log(res);
+    }
+
+  confirmEnding("He has to give me a new name", "na");
+    </script>
+  </body>
+</html>

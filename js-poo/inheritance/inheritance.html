@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Herencia - JS POO</title>
+  </head>
+  <body>
+    <h1>Herencia - JS POO</h1>
+    <script type="text/javascript">
+    var book = {
+      title: 'The principles of Object-Oriented JS'
+      // toString: function(){
+      //   return '[Book ' + this.title + ']';
+      // }
+    };
+    var prototipo = Object.getPrototypeOf(book);
+    console.log('prototipo === Object.prototype');
+    console.log(prototipo === Object.prototype); // true
+
+    var pedro = "Pedro picapiedra";
+    pedro.fav = 'Pizza';
+
+    var pablo = new String("pablo");
+    pablo.fav = 'tacos de canasta';
+
+    console.log('pedro Picapiedra'.toUpperCase());
+    console.log(pedro.fav);
+    console.log(pablo.fav);
+
+    var now = new Date();
+    var earlier = new Date(2010,01,05);
+
+    console.log(earlier);
+
+    var message = "Book = " + book;
+    console.log("message");
+    console.log(message);
+    console.log('book');
+
+    book.toString = function(){
+      return '[Book ' + this.title + ']';
+    };
+
+    var messageB = "Book = " + book;
+    console.log("messageB");
+    console.log(messageB);
+
+
+    Object.prototype.add = function (value) {
+      return this + value;
+    };
+    var booky = {
+      title: 'My Booky'
+    };
+    console.log("booky.add(5)");
+    console.log(booky.add(5));
+
+    console.log('"title".add("end")');
+    console.log("title".add("end"));
+
+    console.log("document.add(true)");
+    console.log(document.add(true));
+
+    console.log("window.add(5)");
+    console.log(window.add(5));
+
+    var empty = {};
+
+    for(var property in empty){
+      console.log("property in empty");
+      console.log(property); // add
+    }
+
+    var emptyB = {};
+
+    for (var propertyB in emptyB) {
+      if (emptyB.hasOwnProperty(property)) {
+        console.log("propertyB in emptyB");
+        console.log(propertyB); // No muestra nada si el objeto esta vacio
+      }
+    }
+
+    console.clear();
+
+    // El codigo...
+    var bookB = {
+      title: "My Book"
+    };
+
+    // Es igual a...
+    var bookB = Object.create(Object.prototype, {
+      title: {
+        configurable: true,
+        enumerable: true,
+        value: "My Book",
+        writable: true
+      }
+    });
+
+    var Padre = {
+      name: "Antonio",
+      sayName: function(){
+        console.log("Hola, mi nombre es " + this.name);
+      }
+    };
+
+    var Hijo = Object.create(Padre, {
+      name: {
+        configurable: true,
+        enumerable: true,
+        writable: true,
+        value: "Hugo"
+      }
+    });
+
+    Padre.sayName(); // Hola, mi nombre es Antonio
+    Hijo.sayName(); // // Hola, mi nombre es Hugo
+
+    console.log('Padre.hasOwnProperty("sayName")');
+    console.log(Padre.hasOwnProperty("sayName")); // true
+
+    console.log("Padre.isPrototypeOf(Hijo)");
+    console.log(Padre.isPrototypeOf(Hijo)); // true
+
+    console.log('Hijo.hasOwnProperty("sayName")');
+    console.log(Hijo.hasOwnProperty("sayName")); // false
+
+    console.log("Hijo.isPrototypeOf(Padre)");
+    console.log(Hijo.isPrototypeOf(Padre)); // false
+
+    </script>
+  </body>
+</html>

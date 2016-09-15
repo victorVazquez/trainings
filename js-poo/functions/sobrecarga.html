@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sobrecarga - POO en JS</title>
+  </head>
+  <body>
+    <h1>Sobrecarga - POO en JS</h1>
+    <script type="text/javascript">
+    function sayMessage(message) {
+      console.log(message);
+    }
+
+    function sayMessage() {
+      console.log("Default message");
+    }
+
+    sayMessage("Hello");
+
+    console.log("-----------------------------------");
+    function sayMessageB(message){
+      if(arguments.length == 0){
+        message = "Default message";
+      }
+      console.log(message);
+    }
+
+    sayMessageB("Hola Mundo"); // Hola Mundo
+    sayMessageB(); // Default message
+
+
+    </script>
+  </body>
+</html>
